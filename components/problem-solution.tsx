@@ -1,4 +1,4 @@
-import { Brain, Lock, TrendingUp } from "lucide-react";
+import { Brain, Lock, TrendUp } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function ProblemSolution() {
@@ -48,7 +48,7 @@ export function ProblemSolution() {
           <Card className="text-center p-6 hover:shadow-lg transition-shadow">
             <CardContent className="pt-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-primary" />
+                <TrendUp className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Guided Growth</h3>
               <p className="text-muted-foreground">

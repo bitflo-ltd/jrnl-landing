@@ -1,10 +1,10 @@
-import { Edit3, Brain, TrendingUp, ArrowRight } from "lucide-react";
+import { PencilSimple, Brain, TrendUp, ArrowRight } from "@phosphor-icons/react";
 
 export function HowItWorks() {
   const steps = [
     {
       number: "01",
-      icon: Edit3,
+      icon: PencilSimple,
       title: "Write Freely",
       description: "Capture your thoughts in a distraction-free environment designed for reflection and clarity.",
     },
@@ -16,7 +16,7 @@ export function HowItWorks() {
     },
     {
       number: "03",
-      icon: TrendingUp,
+      icon: TrendUp,
       title: "You Grow",
       description: "Receive personalized insights and prompts tailored to your unique emotional journey.",
     },

@@ -1,7 +1,9 @@
-import { Star } from "lucide-react";
+import { Star } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useWaitlistCount } from "@/lib/hooks/useWaitlistCount";
 
 export function SocialProof() {
+  const { count, loading } = useWaitlistCount();
   const testimonials = [
     {
       quote: "Finally, a journaling app that understands the importance of privacy. The AI insights help me understand my patterns without feeling exposed.",
@@ -36,7 +38,7 @@ export function SocialProof() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center gap-2 text-primary font-semibold mb-4">
             <span className="text-2xl">🎉</span>
-            Join 500+ people on the waitlist
+            Join {loading ? "500+" : `${count || 500}+`} people on the waitlist
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Loved by Thoughtful People
@@ -83,7 +85,9 @@ export function SocialProof() {
         {/* Bottom Stats */}
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <div>
-            <div className="text-3xl font-bold text-primary mb-2">500+</div>
+            <div className="text-3xl font-bold text-primary mb-2">
+              {loading ? "500+" : `${count || 500}+`}
+            </div>
             <div className="text-muted-foreground">People on waitlist</div>
           </div>
           <div>

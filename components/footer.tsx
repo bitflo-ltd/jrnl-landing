@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PenTool, Github, Twitter, Mail } from "lucide-react";
+import { PenNib, GithubLogo, TwitterLogo, EnvelopeSimple } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <PenTool className="h-6 w-6 text-primary" />
+              <PenNib className="h-6 w-6 text-primary" />
               <span className="font-bold text-xl">JRNL</span>
             </Link>
             <p className="text-muted-foreground mb-4 max-w-md">
@@ -84,21 +84,21 @@ export function Footer() {
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
-              <Github className="h-5 w-5" />
+              <GithubLogo className="h-5 w-5" />
             </a>
             <a 
               href="https://twitter.com/jrnl_app" 
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Twitter"
             >
-              <Twitter className="h-5 w-5" />
+              <TwitterLogo className="h-5 w-5" />
             </a>
             <a 
               href="mailto:hello@jrnl.app" 
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
-              <Mail className="h-5 w-5" />
+              <EnvelopeSimple className="h-5 w-5" />
             </a>
           </div>
         </div>

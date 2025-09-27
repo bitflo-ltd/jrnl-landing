@@ -57,6 +57,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-variant-numeric: oldstyle-nums proportional-nums;
   }
 
   /* Smooth scrolling for anchor links */
@@ -64,11 +65,11 @@
     scroll-behavior: smooth;
   }
 
-  /* Custom animations */
+  /* Enhanced custom animations */
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -76,8 +77,34 @@
     }
   }
 
+  @keyframes elegant-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(2deg);
+    }
+  }
+
+  @keyframes subtle-pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out;
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-elegant-float {
+    animation: elegant-float 6s ease-in-out infinite;
+  }
+
+  .animate-subtle-pulse {
+    animation: subtle-pulse 4s ease-in-out infinite;
   }
 
   /* Respect reduced motion */

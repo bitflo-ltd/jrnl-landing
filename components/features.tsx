@@ -1,24 +1,24 @@
 import { 
-  MessageSquare, 
-  PieChart, 
+  ChatCircle, 
+  ChartPie, 
   FileText, 
-  Shield, 
-  Wifi, 
+  ShieldCheck, 
+  WifiX, 
   Download 
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export function Features() {
   const features = [
     {
-      icon: MessageSquare,
+      icon: ChatCircle,
       title: "Smart Reflection Prompts",
       description: "AI-generated questions that adapt to your writing style and help you explore deeper thoughts and emotions.",
       badge: null,
     },
     {
-      icon: PieChart,
+      icon: ChartPie,
       title: "Emotional Pattern Tracking",
       description: "Visualize your emotional journey over time with beautiful charts that reveal patterns you might have missed.",
       badge: null,
@@ -30,13 +30,13 @@ export function Features() {
       badge: null,
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "Private & Secure by Design",
       description: "End-to-end encryption ensures your journal entries are always private. No one else can read your thoughts.",
       badge: null,
     },
     {
-      icon: Wifi,
+      icon: WifiX,
       title: "Offline-Capable",
       description: "Write anywhere, anytime. Sync when you're ready. Your thoughts shouldn't wait for an internet connection.",
       badge: "Coming Soon",

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle, Spinner, Warning } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -14,6 +14,7 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { addWaitlistEntry, checkEmailExists } from "@/lib/supabase";
 
 interface WaitlistFormData {
   email: string;
@@ -24,6 +25,7 @@ interface WaitlistFormData {
 export function WaitlistForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   
   const {
     register,
@@ -31,23 +33,38 @@ export function WaitlistForm() {
     setValue,
     watch,
     formState: { errors },
+    setError: setFormError,
   } = useForm<WaitlistFormData>();
 
   const agreeToUpdates = watch("agreeToUpdates");
 
   const onSubmit = async (data: WaitlistFormData) => {
     setIsLoading(true);
+    setError(null);
     
-    // Simulate form submission (replace with actual implementation)
     try {
-      // This would typically be a call to your form handling service
-      // For now, we'll just simulate a delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Check if email already exists
+      const emailExists = await checkEmailExists(data.email);
       
-      console.log("Form submitted:", data);
+      if (emailExists) {
+        setFormError("email", {
+          type: "manual",
+          message: "This email is already on the waitlist!"
+        });
+        return;
+      }
+
+      // Add to waitlist
+      await addWaitlistEntry({
+        email: data.email,
+        role: data.role,
+        agree_to_updates: data.agreeToUpdates,
+      });
+      
       setIsSubmitted(true);
     } catch (error) {
       console.error("Form submission error:", error);
+      setError("Something went wrong. Please try again later.");
     } finally {
       setIsLoading(false);
     }
@@ -61,7 +78,7 @@ export function WaitlistForm() {
             <Card className="text-center p-8">
               <CardContent>
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 className="h-8 w-8 text-green-600" />
+                  <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">You&apos;re on the list! 🎉</h3>
                 <p className="text-muted-foreground mb-6">
@@ -97,6 +114,13 @@ export function WaitlistForm() {
               <CardTitle className="text-center">Get Early Access</CardTitle>
             </CardHeader>
             <CardContent>
+              {error && (
+                <div className="flex items-center gap-2 p-3 mb-4 text-sm text-red-600 bg-red-50 rounded-md border border-red-200">
+                  <Warning className="h-4 w-4" />
+                  {error}
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Email Field */}
                 <div>
@@ -162,7 +186,7 @@ export function WaitlistForm() {
                 >
                   {isLoading ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Spinner className="mr-2 h-4 w-4 animate-spin" />
                       Joining Waitlist...
                     </>
                   ) : (
