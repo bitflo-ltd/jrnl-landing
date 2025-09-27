@@ -6,7 +6,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 const sans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
+  fallback: ["system-ui", "arial", "sans-serif"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
