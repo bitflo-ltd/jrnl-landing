@@ -1,7 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+
+// Check if we have valid Supabase credentials
+const hasValidCredentials = supabaseUrl !== 'https://placeholder.supabase.co' && supabaseAnonKey !== 'placeholder-key'
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
@@ -17,6 +20,11 @@ export interface WaitlistEntry {
 
 // Function to add waitlist entry
 export const addWaitlistEntry = async (data: Omit<WaitlistEntry, 'id' | 'created_at' | 'updated_at'>) => {
+  if (!hasValidCredentials) {
+    console.warn('Supabase credentials not configured. Skipping database operation.')
+    return { id: 'mock-id', ...data, created_at: new Date().toISOString(), updated_at: new Date().toISOString() }
+  }
+
   const { data: result, error } = await supabase
     .from('waitlist')
     .insert([data])
@@ -32,6 +40,11 @@ export const addWaitlistEntry = async (data: Omit<WaitlistEntry, 'id' | 'created
 
 // Function to check if email already exists
 export const checkEmailExists = async (email: string) => {
+  if (!hasValidCredentials) {
+    console.warn('Supabase credentials not configured. Returning false for email check.')
+    return false
+  }
+
   const { data, error } = await supabase
     .from('waitlist')
     .select('email')
@@ -47,6 +60,11 @@ export const checkEmailExists = async (email: string) => {
 
 // Function to get waitlist count
 export const getWaitlistCount = async () => {
+  if (!hasValidCredentials) {
+    console.warn('Supabase credentials not configured. Returning placeholder count.')
+    return 500 // Return a placeholder count for development
+  }
+
   const { count, error } = await supabase
     .from('waitlist')
     .select('*', { count: 'exact', head: true })
