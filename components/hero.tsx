@@ -1,6 +1,5 @@
 "use client";
 
-import { CaretDown } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useWaitlistCount } from "@/lib/hooks/useWaitlistCount";
 

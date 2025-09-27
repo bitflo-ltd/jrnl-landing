@@ -1,10 +1,12 @@
+'use client';
+
 import { 
-  ChatCircle, 
-  ChartPie, 
-  FileText, 
-  ShieldCheck, 
-  WifiX, 
-  Download 
+  ChatCircleIcon, 
+  ChartPieIcon, 
+  FileTextIcon, 
+  ShieldCheckIcon, 
+  WifiXIcon, 
+  DownloadIcon 
 } from "@phosphor-icons/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,37 +14,37 @@ import { Badge } from "@/components/ui/badge";
 export function Features() {
   const features = [
     {
-      icon: ChatCircle,
+      icon: ChatCircleIcon,
       title: "Smart Reflection Prompts",
       description: "AI-generated questions that adapt to your writing style and help you explore deeper thoughts and emotions.",
       badge: null,
     },
     {
-      icon: ChartPie,
+      icon: ChartPieIcon,
       title: "Emotional Pattern Tracking",
       description: "Visualize your emotional journey over time with beautiful charts that reveal patterns you might have missed.",
       badge: null,
     },
     {
-      icon: FileText,
+      icon: FileTextIcon,
       title: "Weekly Insight Summaries",
       description: "Get personalized summaries of your week's journaling with key insights and growth opportunities.",
       badge: null,
     },
     {
-      icon: ShieldCheck,
+      icon: ShieldCheckIcon,
       title: "Private & Secure by Design",
       description: "End-to-end encryption ensures your journal entries are always private. No one else can read your thoughts.",
       badge: null,
     },
     {
-      icon: WifiX,
+      icon: WifiXIcon,
       title: "Offline-Capable",
       description: "Write anywhere, anytime. Sync when you're ready. Your thoughts shouldn't wait for an internet connection.",
       badge: "Coming Soon",
     },
     {
-      icon: Download,
+      icon: DownloadIcon,
       title: "Export Your Data Anytime",
       description: "Your journal belongs to you. Export your data in multiple formats whenever you want to switch or backup.",
       badge: null,

@@ -1,4 +1,6 @@
-import { Star } from "@phosphor-icons/react";
+"use client";
+
+import { StarIcon } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useWaitlistCount } from "@/lib/hooks/useWaitlistCount";
 
@@ -56,7 +58,7 @@ export function SocialProof() {
                 {/* Stars */}
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <StarIcon weight="fill" key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
 

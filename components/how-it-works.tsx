@@ -1,22 +1,22 @@
-import { PencilSimple, Brain, TrendUp, ArrowRight } from "@phosphor-icons/react";
+import { PencilSimpleIcon, BrainIcon, TrendUpIcon, ArrowRightIcon } from "@phosphor-icons/react/ssr";
 
 export function HowItWorks() {
   const steps = [
     {
       number: "01",
-      icon: PencilSimple,
+      icon: PencilSimpleIcon,
       title: "Write Freely",
       description: "Capture your thoughts in a distraction-free environment designed for reflection and clarity.",
     },
     {
       number: "02",
-      icon: Brain,
+      icon: BrainIcon,
       title: "AI Analyzes",
       description: "Our privacy-first AI discovers patterns and insights without compromising your personal data.",
     },
     {
       number: "03",
-      icon: TrendUp,
+      icon: TrendUpIcon,
       title: "You Grow",
       description: "Receive personalized insights and prompts tailored to your unique emotional journey.",
     },
@@ -57,7 +57,7 @@ export function HowItWorks() {
                 {/* Arrow (not on last item) */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                    <ArrowRight className="h-6 w-6 text-muted-foreground/50" />
+                    <ArrowRightIcon className="h-6 w-6 text-muted-foreground/50" />
                   </div>
                 )}
               </div>
@@ -72,7 +72,7 @@ export function HowItWorks() {
           </p>
           <div className="inline-flex items-center text-primary font-medium">
             Join our waitlist today
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
           </div>
         </div>
       </div>

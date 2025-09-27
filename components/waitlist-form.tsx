@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CheckCircle, Spinner, Warning } from "@phosphor-icons/react";
+import { CheckCircleIcon, SpinnerIcon, WarningIcon } from "@phosphor-icons/react/ssr";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -78,7 +78,7 @@ export function WaitlistForm() {
             <Card className="text-center p-8">
               <CardContent>
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-green-600" />
+                  <CheckCircleIcon className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">You&apos;re on the list! 🎉</h3>
                 <p className="text-muted-foreground mb-6">
@@ -116,7 +116,7 @@ export function WaitlistForm() {
             <CardContent>
               {error && (
                 <div className="flex items-center gap-2 p-3 mb-4 text-sm text-red-600 bg-red-50 rounded-md border border-red-200">
-                  <Warning className="h-4 w-4" />
+                  <WarningIcon className="h-4 w-4" />
                   {error}
                 </div>
               )}
@@ -186,7 +186,7 @@ export function WaitlistForm() {
                 >
                   {isLoading ? (
                     <>
-                      <Spinner className="mr-2 h-4 w-4 animate-spin" />
+                      <SpinnerIcon className="mr-2 h-4 w-4 animate-spin" />
                       Joining Waitlist...
                     </>
                   ) : (

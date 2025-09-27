@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PencilCircle } from "@phosphor-icons/react";
+import { PencilCircleIcon } from "@phosphor-icons/react/ssr";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 
@@ -20,7 +20,7 @@ export function Header() {
         <div className="mr-8 flex">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <PencilCircle className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />
+              <PencilCircleIcon className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />
             </div>
             <span className="font-light text-2xl tracking-tight">Jrnl</span>
           </Link>
